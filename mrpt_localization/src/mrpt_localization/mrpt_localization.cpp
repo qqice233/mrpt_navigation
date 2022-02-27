@@ -41,7 +41,7 @@ using mrpt::maps::COccupancyGridMap2D;
 using mrpt::maps::CSimplePointsMap;
 
 #include <mrpt/system/filesystem.h>
-#include <mrpt/opengl/CEllipsoid2D.h>
+#include <mrpt/opengl/CEllipsoid.h>
 #include <mrpt/opengl/CPointCloud.h>
 
 #include <thread>
@@ -317,7 +317,7 @@ void PFLocalization::show3DDebug(CSensoryFrame::Ptr _observations)
 			CRenderizable::Ptr ellip = ptr_scene->getByName("parts_cov");
 			if (!ellip)
 			{
-				auto o = CEllipsoid2D::Create();
+				auto o = CEllipsoid::Create();
 				ellip = o;
 				ellip->setName("parts_cov");
 				ellip->setColor(1, 0, 0, 0.6);
@@ -329,7 +329,7 @@ void PFLocalization::show3DDebug(CSensoryFrame::Ptr _observations)
 			}
 			ellip->setLocation(meanPose.x(), meanPose.y(), 0.05);
 #if MRPT_VERSION >= 0x199
-			dynamic_cast<CEllipsoid2D*>(ellip.get())->setCovMatrix(cov, 2);
+			dynamic_cast<CEllipsoid*>(ellip.get())->setCovMatrix(cov, 2);
 #else
 			/// ToDo
 #endif

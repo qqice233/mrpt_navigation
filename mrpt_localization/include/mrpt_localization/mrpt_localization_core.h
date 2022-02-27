@@ -40,7 +40,7 @@
 #include <mrpt/bayes/CParticleFilter.h>
 #include <mrpt/poses/CPose2D.h>
 #include <mrpt/poses/CPosePDFGaussian.h>
-#include <mrpt/system/CTicTac.h>
+#include <mrpt/utils/CTicTac.h>
 #include <mrpt/slam/CMonteCarloLocalization2D.h>
 #include <mrpt_bridge/mrpt_log_macros.h>
 
@@ -101,7 +101,7 @@ class PFLocalizationCore
 		initial_pose_;  ///< initial posed used in initializeFilter()
 	int initial_particle_count_;  ///< number of particles for initialization
 	mrpt::system::TTimeStamp time_last_update_;  ///< time of the last update
-	mrpt::system::CTicTac tictac_;  ///< timer to measure performance
+	mrpt::utils::CTicTac tictac_;  ///< timer to measure performance
 	size_t update_counter_;  ///< internal counter to count the number of filter
 	/// updates
 	PFStates state_;  ///< filter states to perform things like init on the
