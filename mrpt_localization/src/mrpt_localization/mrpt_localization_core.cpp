@@ -45,7 +45,7 @@ using namespace mrpt::slam;
 using namespace mrpt::opengl;
 using namespace mrpt::math;
 using namespace mrpt::system;
-using namespace mrpt::utils;
+//using namespace mrpt::utils;
 using namespace std;
 
 PFLocalizationCore::~PFLocalizationCore() {}
